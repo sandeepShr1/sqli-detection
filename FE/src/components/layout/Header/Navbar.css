@@ -1,0 +1,254 @@
+.speedDial {
+      position: fixed;
+      right   : 1vmax;
+      top     : 9vmax;
+}
+
+.speedDialIcon {
+      width        : 56px;
+      height       : 56px;
+      border-radius: 100%;
+}
+
+.search-container {
+      display        : flex;
+      justify-content: center;
+      align-items    : center;
+}
+
+
+.navbar {
+      display        : flex;
+      justify-content: space-between;
+      align-items    : center;
+      margin         : 6px 18px;
+      position       : relative;
+}
+
+.logo {
+      color    : gray;
+      font-size: 1.5vmax;
+
+}
+
+.nav-links {
+      display        : flex;
+      align-items    : center;
+      padding        : 30px;
+      justify-content: space-around;
+}
+
+.cart-icon {
+      font-size       : 25px;
+      color           : gray;
+      cursor          : pointer;
+      position        : relative;
+      transition      : transform .4s ease;
+      border          : none;
+      background-color: transparent;
+}
+
+.cart-icon:hover {
+      transform: scale(1.1, 1.1);
+}
+
+.cart-item-qty {
+      position        : absolute;
+      right           : -8px;
+      font-size       : 12px;
+      color           : #eee;
+      background-color: #f02d34;
+      width           : 18px;
+      height          : 18px;
+      border-radius   : 50%;
+      text-align      : center;
+      font-weight     : 600;
+
+}
+
+/* Notification Badge Styles */
+.notification-badge {
+      position        : absolute;
+      top             : -8px;
+      right           : -8px;
+      font-size       : 10px;
+      color           : #fff;
+      background-color: #ff0000;
+      min-width       : 18px;
+      height          : 18px;
+      border-radius   : 50%;
+      text-align      : center;
+      font-weight     : 700;
+      display         : flex;
+      align-items     : center;
+      justify-content : center;
+      padding         : 2px;
+      box-shadow      : 0 2px 4px rgba(0, 0, 0, 0.2);
+      animation       : pulse 2s infinite;
+      border          : 2px solid #fff;
+}
+
+@keyframes pulse {
+      0% {
+            box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7);
+      }
+
+      70% {
+            box-shadow: 0 0 0 6px rgba(255, 0, 0, 0);
+      }
+
+      100% {
+            box-shadow: 0 0 0 0 rgba(255, 0, 0, 0);
+      }
+}
+
+.search {
+      width   : 100%;
+      position: relative;
+      display : flex;
+      box-shadow: 0px 1px 2px 0px #FFC3C3,
+            1px 2px 4px 0px #FFC3C3,
+            2px 4px 8px 0px #FFC3C3,
+            2px 4px 16px 0px #FFC3C3;
+}
+
+.searchTerm {
+      width        : 100%;
+      border       : none;
+      border-right : none;
+      padding      : 26px;
+      height       : 26px;
+      border-radius: 5px 0 0 5px;
+      outline      : none;
+      color        : #9DBFAF;
+}
+
+.searchTerm:focus {
+      color: #00B4CC;
+}
+
+.searchButton {
+      width        : 72px;
+      height       : 52px;
+      border       : 1px solid #ff523b;
+      background   : #ff523b;
+      text-align   : center;
+      color        : #fff;
+      border-radius: 0 5px 5px 0;
+      cursor       : pointer;
+      font-size    : 20px;
+}
+
+.clearButton {
+      width     : 72px;
+      height    : 52px;
+      text-align: center;
+      color     : #333;
+      cursor    : pointer;
+      font-size : 18px;
+      border    : transparent;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+      width: 40%;
+
+}
+
+.nav {
+      text-align: right;
+}
+
+.nav>ul {
+      display        : inline-block;
+      list-style-type: none;
+}
+
+.nav>ul>li {
+      display     : inline-block;
+      margin-right: 20px;
+}
+
+.nav>ul>li>a {
+      text-decoration: none;
+      color          : #555;
+}
+
+p {
+      color: #555;
+}
+
+.ic {
+      margin: 0 25px;
+}
+
+.ic>a {
+      padding: 6px;
+}
+
+.active {
+      border-bottom: 1px solid #f39184;
+}
+
+.inactive {
+      background-color: transparent;
+}
+
+.nav-icon {
+      width      : 25px;
+      margin-left: 6px;
+      display    : none;
+}
+
+@media only screen and (max-width:1024px) {
+      .nav-links {
+            display       : flex;
+            flex-direction: column;
+            position      : absolute;
+            text-align    : center;
+            width         : 100%;
+            top           : 37px;
+            left          : -100%;
+            transition    : 0.5s all;
+      }
+
+      .nav {
+            text-align: center;
+      }
+
+      .nav-links.active {
+            z-index   : 2;
+            background: #333;
+            left      : 0;
+            display   : block;
+      }
+
+      .nav-icon {
+            display: flex;
+      }
+
+      .wrap {
+            padding-top: 5px;
+            margin     : auto;
+      }
+
+      .nav>ul>li {
+            display: block;
+            padding: 5px;
+      }
+
+      .nav>ul>li>a {
+            color: #fff;
+      }
+
+      .ic>a {
+            color: #fff;
+      }
+
+}
+
+@media only screen and (max-width:500px) {
+      .wrap {
+            width: 70%;
+      }
+}

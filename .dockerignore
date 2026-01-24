@@ -1,0 +1,9 @@
+# Root .dockerignore
+node_modules
+.git
+.gitignore
+*.md
+.env
+.vscode
+.idea
+*.log
