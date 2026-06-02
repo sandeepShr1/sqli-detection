@@ -29,7 +29,7 @@ export const getMyOrders = () => async (dispatch) => {
                   type: actionTypes.MY_ORDERS_REQUEST
             })
 
-            const { data } = await axios.get("/api/v1/orders/me");
+            const { data } = await axios.get("/api/v1/orders/orders/me");
 
             dispatch({
                   type: actionTypes.MY_ORDERS_SUCCESS,
@@ -50,7 +50,7 @@ export const getOrderDetails = (id) => async (dispatch) => {
                   type: actionTypes.ORDER_DETAILS_REQUEST
             })
 
-            const { data } = await axios.get(`/api/v1/orders/${id}`);
+            const { data } = await axios.get(`/api/v1/orders/order/${id}`);
 
             dispatch({
                   type: actionTypes.ORDER_DETAILS_SUCCESS,
@@ -96,7 +96,8 @@ export const updateOrder = (id, orderData) => async (dispatch) => {
                   },
             };
 
-            const { data } = await axios.put(`/api/v1/orders/admin/${id}`, orderData, config);
+            console.log({ orderData })
+            const { data } = await axios.put(`/api/v1/orders/admin/order/${id}`, orderData, config);
 
             dispatch({
                   type: actionTypes.UPDATE_ORDERS_SUCCESS,

@@ -42,10 +42,10 @@ const UpdateOrder = () => {
       const updateOrderSubmitHandler = (e) => {
             e.preventDefault();
 
-            const myForm = new FormData();
+            // const myForm = new FormData();
 
-            myForm.set("status", status);
-            dispatch(updateOrder(id, myForm));
+            // myForm.set("orderStatus", status);
+            dispatch(updateOrder(id, { "orderStatus": status }));
       }
 
       return (
