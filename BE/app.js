@@ -19,7 +19,7 @@ app.use(express.json());
 
 // Enhanced CORS configuration for SSE
 app.use(cors({
-      origin: ['http://localhost:3000', 'http://localhost:3001', "https://sqli-detection.vercel.app/"], // Add your frontend URLs
+      origin: ['http://localhost:3000', 'http://localhost:3001', "https://sqli-detection.vercel.app", "https://sqli-detection-c7q7n3u2v-sandeepshr1s-projects-e47c0dda.vercel.app"], // Add your frontend URLs
       credentials: true,
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Authorization'],
