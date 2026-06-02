@@ -15,7 +15,7 @@ const EXCLUDED_QUERY_KEYS = [
 ];
 
 async function sqlDetectionMiddleware(req, res, next) {
-      console.log({ REQUEST: req.query, BODY: req.body })
+      // console.log({ REQUEST: req.query, BODY: req.body })
       try {
             const fieldsToScan = [];
 

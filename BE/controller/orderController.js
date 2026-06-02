@@ -126,12 +126,45 @@ const getAllOrders = catchAsyncError(async (req, res, next) => {
 });
 
 // Update order status - Admin
+// const updateOrder = catchAsyncError(async (req, res, next) => {
+//       const order = await Order.findByPk(req.params.id, {
+//             include: [{
+//                   model: OrderItem,
+//                   as: 'orderItems'
+//             }]
+//       });
+
+//       if (!order) {
+//             return next(new AppError("Order not found!", 404));
+//       }
+
+//       if (order.orderStatus === "Delivered") {
+//             return next(new AppError("You have already delivered this order", 400));
+//       }
+
+//       // Update stock when order is shipped
+//       if (req.body.orderStatus === "Shipped") {
+//             for (const item of order.orderItems) {
+//                   await updateStock(item.productId, item.quantity);
+//             }
+//       }
+
+//       order.orderStatus = req.body.status;
+
+//       if (req.body.orderStatus === "Delivered") {
+//             order.deliveredAt = Date.now();
+//       }
+
+//       await order.save();
+
+//       res.status(200).json({
+//             success: true,
+//             order
+//       });
+// });
 const updateOrder = catchAsyncError(async (req, res, next) => {
       const order = await Order.findByPk(req.params.id, {
-            include: [{
-                  model: OrderItem,
-                  as: 'orderItems'
-            }]
+            include: [{ model: OrderItem, as: 'orderItems' }]
       });
 
       if (!order) {
@@ -142,16 +175,18 @@ const updateOrder = catchAsyncError(async (req, res, next) => {
             return next(new AppError("You have already delivered this order", 400));
       }
 
+      const { orderStatus } = req.body;
+
       // Update stock when order is shipped
-      if (req.body.status === "Shipped") {
+      if (orderStatus === "Shipped") {
             for (const item of order.orderItems) {
                   await updateStock(item.productId, item.quantity);
             }
       }
 
-      order.orderStatus = req.body.status;
+      order.orderStatus = orderStatus;
 
-      if (req.body.status === "Delivered") {
+      if (orderStatus === "Delivered") {
             order.deliveredAt = Date.now();
       }
 
